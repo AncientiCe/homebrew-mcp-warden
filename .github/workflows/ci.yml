@@ -1,0 +1,44 @@
+name: Tap CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    name: Audit formula (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Homebrew/actions/setup-homebrew@main
+
+      # Register the checkout as a tap via symlink so `brew` can address the
+      # formula by name (path-based `brew audit/install` is disabled). A symlink
+      # (not a copy) keeps setup-homebrew's post-cleanup happy.
+      - name: Link tap into Homebrew
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/ancientice/homebrew-mcp-warden"
+          rm -rf "$tap_dir"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -s "$GITHUB_WORKSPACE" "$tap_dir"
+
+      - name: brew style
+        run: brew style ancientice/mcp-warden
+
+      - name: brew audit
+        run: brew audit --online --formula ancientice/mcp-warden/mcp-warden
+
+      # GitHub's ubuntu-latest restricts unprivileged user namespaces (AppArmor),
+      # so Homebrew's bubblewrap sandbox cannot start. Disable it on Linux; the
+      # variable is ignored on macOS.
+      - name: Install and test formula
+        env:
+          HOMEBREW_NO_SANDBOX_LINUX: "1"
+        run: |
+          brew install ancientice/mcp-warden/mcp-warden
+          brew test ancientice/mcp-warden/mcp-warden
