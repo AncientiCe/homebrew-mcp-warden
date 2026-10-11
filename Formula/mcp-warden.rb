@@ -3,10 +3,6 @@ class McpWarden < Formula
   homepage "https://github.com/AncientiCe/mcp-warden"
   license any_of: ["MIT", "Apache-2.0"]
 
-  # The release workflow in AncientiCe/mcp-warden opens a PR here with the real
-  # per-platform URLs and sha256 checksums for every tagged release. Until the
-  # first release PR merges, `brew install` fails with a checksum mismatch.
-
   on_macos do
     on_arm do
       url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.3.4/mcp-warden-0.3.4-aarch64-apple-darwin.tar.gz"
