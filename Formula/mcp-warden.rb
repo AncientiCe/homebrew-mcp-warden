@@ -5,25 +5,25 @@ class McpWarden < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.3.6/mcp-warden-0.3.6-aarch64-apple-darwin.tar.gz"
-      sha256 "f08e4b95e8c8aa9e09101c8a9301d24d173cf575b852ebb2c37973c002dd10c1"
+      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.4.0/mcp-warden-0.4.0-aarch64-apple-darwin.tar.gz"
+      sha256 "5607176f50c4db13fdef3bdf2a96510ba699fc3af83945a4039da80b01714016"
     end
 
     on_intel do
-      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.3.6/mcp-warden-0.3.6-x86_64-apple-darwin.tar.gz"
-      sha256 "cdf316cd60826564ead994ec32faf001f229dedd75c8be06ca6b96e460ffc266"
+      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.4.0/mcp-warden-0.4.0-x86_64-apple-darwin.tar.gz"
+      sha256 "4c8db0de47c8a0606b9926fc35856c5825e442be2998ece1bded9f3a2fdf7454"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.3.6/mcp-warden-0.3.6-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "bdd3e1dc2c5e32583e9f796722dd8eda98bc4eb7fdb9b66d7256bb6cc261c3d1"
+      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.4.0/mcp-warden-0.4.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6458d7e09a456b1c546055e44eb33e0ece8a3a6fe38c3a6453a01a390c9a3c4e"
     end
 
     on_intel do
-      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.3.6/mcp-warden-0.3.6-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "27607d27aa747eb63d6b5d4411e225107f272b68bfc520f89621bb06d44052ef"
+      url "https://github.com/AncientiCe/mcp-warden/releases/download/v0.4.0/mcp-warden-0.4.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2897c07345141a61ab2f5be1ce44e85dde86677f4b8487933b8448e8eb2039b6"
     end
   end
 
